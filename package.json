@@ -1,21 +1,38 @@
 {
-  "name": "fb-video-downloader",
+  "name": "video-downloader",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@xaviabot/fb-downloader": "^1.0.14",
+    "archiver": "^7.0.1",
+    "axios": "^1.11.0",
+    "axios-cookiejar-support": "^6.0.4",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.1",
+    "fs": "^0.0.1-security",
+    "instagram-url-direct": "^2.0.7",
+    "next": "15.4.5",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7",
+    "playwright": "^1.54.2",
+    "puppeteer": "^24.16.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.4.6"
+    "react-icons": "^5.5.0",
+    "sass": "^1.89.2",
+    "snapsave-media-downloader": "^2.2.1",
+    "snapsaver-downloader": "^1.0.3",
+    "swiper": "^11.2.10",
+    "tough-cookie": "^5.1.2"
   },
   "devDependencies": {
-    "eslint": "^9",
-    "eslint-config-next": "15.4.6",
-    "@eslint/eslintrc": "^3"
+    "next-sitemap": "^4.2.3"
   }
 }
