@@ -1,7 +1,7 @@
 
 
 export async function downloadFacebookMedia(url) {
-  const res = await fetch("/api/facebook", {
+  const res = await fetch("/api/facebook/photo", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url }),
