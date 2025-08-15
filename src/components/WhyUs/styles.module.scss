@@ -1,0 +1,119 @@
+.wrapper {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.container {
+  margin: 64px auto;
+  max-width: 1024px;
+
+  @media(max-width:480px){
+    margin:32px auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .title {
+        font-size: 32px;
+        font-weight: 700;
+        color: $primary-color;
+        padding-bottom:20px;
+        border-bottom: 2px solid transparent;
+        border-image:$gradient-color 1;
+
+        @media(max-width:768px){
+            font-size: 28px;
+        }
+
+        @media(max-width:480px){
+            font-size: 24px;
+            padding-bottom:10px;
+        }
+    }
+  
+    .description {
+        font-size: 18px;
+        color:$text-secondary;
+        padding:20px;
+
+        @media(max-width:768px){
+            padding:20px 0px;
+            font-size: 16px;
+        }
+
+       
+    }
+   }
+}
+
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px 80px;
+
+  @media(max-width:768px){
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        outline: none;
+
+        &:focus-visible {
+            outline: 3px solid #3b82f6;
+            outline-offset: 4px;
+        }
+
+        &:hover .icon,
+        &:focus-within .icon {
+            transform: scale(1.1);
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom:20px;
+
+           
+            
+        }
+
+        .featureTitle {
+            font-size: 24px;
+            font-weight: 700;
+            color: $magenta-color;
+            padding-bottom:20px;
+
+            
+        @media(max-width:768px){
+            padding-bottom:10px;
+            font-size: 20px;
+        }   
+        }
+    }
+
+    .featureDescription {
+        border-top: 2px solid #ebecef;
+        font-size: 18px;
+        padding:20px 10px;
+        color:$text-secondary;
+
+        
+        @media(max-width:768px){
+            padding:20px 0px;
+            font-size: 16px;
+        }
+
+    }
+}
+
+
+
+

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://video-downloader-sigma-seven.vercel.app
+
+# Sitemaps
+Sitemap: https://video-downloader-sigma-seven.vercel.app/sitemap.xml

@@ -1,0 +1,30 @@
+.header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.initials {
+    width: 35px;
+    height: 35px;
+
+  border-radius: 50%;
+  background: $gradient-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: $color-white;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.username {
+ font-weight: bold;
+ color: $dark-gray;
+}
