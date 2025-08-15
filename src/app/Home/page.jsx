@@ -39,17 +39,10 @@ export default function Page() {
         title="Reels Downloader"
         description="Reels is a new video format that clones the principle of TikTok. Facebook Reels download with the help of FacebookDl. Our Facebook Reels downloader can help you to save your favorite Reels videos."
         link="/reels"
-        secondImage={Images.videoImg2}
-        secondTitle="IGTV Downloader"
-        secondDescription="IGTV is a long video type. If you can’t watch it now, you can download IGTV videos to your device to be sure that you can return to watching later, without the need to be online or in case the IGTV can be deleted."
-        secondLink="/igtv"
-      />
-
-      <DownloadDescription
-        image={Images.videoImg3}
-        title="Carousel / Album Downloader"
-        description="Carousel, also known as Album or Gallery posts type with multiple photos, videos, or mixed content. If you need to download multiple photos from Facebook, the FacebookDl.app is the best to download gallery."
-        link="/carousel"
+        secondImage={Images.videoImg3}
+        secondTitle="Story Downloader"
+        secondDescription="Story is a long video type. If you can’t watch it now, you can download Story videos to your device to be sure that you can return to watching later, without the need to be online or in case the Story can be deleted."
+        secondLink="/story"
       />
 
       <AppPromotion />
