@@ -1,87 +1,28 @@
-import { NextResponse } from 'next/server';
+import axios from "axios";
 
-export async function GET(request) {
-  const { searchParams } = new URL(request.url);
-  const targetUrl = searchParams.get("url");
-
-  if (!targetUrl) {
-    return NextResponse.json({ error: "Missing URL parameter" }, { status: 400 });
-  }
-
-  // Validate URL to prevent abuse
-  if (!targetUrl.includes('scontent') && !targetUrl.includes('instagram')) {
-    return NextResponse.json({ error: "Invalid URL" }, { status: 400 });
-  }
-
+export async function GET(req) {
   try {
-    console.log("Proxying request to:", targetUrl);
-    
-    const range = request.headers.get('range') || '';
-    const userAgent = request.headers.get('user-agent') || 'Mozilla/5.0 (compatible; InstagramDownloader/1.0)';
-    
-    const response = await fetch(targetUrl, {
-      headers: {
-        'Range': range,
-        'User-Agent': userAgent,
-        'Referer': 'https://www.instagram.com/',
-      },
-    });
+    const { searchParams } = new URL(req.url);
+    const fileUrl = searchParams.get("url");
 
-    if (!response.ok) {
-      throw new Error(`Upstream server responded with ${response.status}`);
+    if (!fileUrl) {
+      return new Response(JSON.stringify({ error: "Media URL is required" }), {
+        status: 400,
+      });
     }
+
+    const response = await axios.get(fileUrl, { responseType: "stream" });
 
     const headers = new Headers();
-    
-    // Copy relevant headers
-    const relevantHeaders = [
-      'content-type', 
-      'content-length', 
-      'accept-ranges', 
-      'content-range',
-      'cache-control',
-      'etag',
-      'last-modified'
-    ];
-    
-    for (const [key, value] of response.headers.entries()) {
-      if (relevantHeaders.includes(key.toLowerCase())) {
-        headers.set(key, value);
-      }
-    }
+    headers.set("Content-Type", response.headers["content-type"]);
+    headers.set(
+      "Content-Disposition",
+      `attachment; filename="facebook-media.${response.headers["content-type"].split("/")[1]}"`
+    );
 
-    // Add CORS headers
-    headers.set("Access-Control-Allow-Origin", "*");
-    headers.set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
-    headers.set("Access-Control-Allow-Headers", "Range, Content-Type");
-    
-    // Set cache headers
-    if (!headers.has('cache-control')) {
-      headers.set("Cache-Control", "public, max-age=86400");
-    }
-
-    return new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers,
-    });
-
-  } catch (err) {
-    console.error("Proxy error:", err);
-    return NextResponse.json({ 
-      error: "Failed to fetch media",
-      details: err.message 
-    }, { status: 500 });
+    return new Response(response.data, { status: 200, headers });
+  } catch (error) {
+    console.error("Proxy error:", error.message);
+    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
   }
-}
-
-export async function OPTIONS(request) {
-  return new Response(null, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
-      "Access-Control-Allow-Headers": "Range, Content-Type",
-    },
-  });
 }

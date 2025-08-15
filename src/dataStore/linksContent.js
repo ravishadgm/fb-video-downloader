@@ -25,25 +25,8 @@ const mainNavLinks = [
     label: "Story",
     icon: <MdOutlineSlideshow />,
 
-  },
-  {
-    href: "/viewer",
-    label: "Viewer",
-    icon: <FaRegEye />,
-   
-  },
-  {
-    href: "/igtv",
-    label: "Igtv",
-    icon: <FaVideo />,
-   
-  },
-  {
-    href: "/carousel",
-    label: "Carousel",
-    icon: <MdOutlineViewCarousel />,
-
-  },
+  }
+  
 ];
 
 const legalLinks = [

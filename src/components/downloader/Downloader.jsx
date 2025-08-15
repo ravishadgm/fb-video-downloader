@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // <-- for auto-active based on URL
+import { usePathname } from "next/navigation";
 import MediaPreview from "@/components/mediaPreview/MediaPreview";
 import styles from "./style.module.scss";
 import { mainNavLinks } from "@/dataStore/linksContent";
-import { downloadInstagramMedia } from "@/utils/api";
+import { downloadFacebookMedia } from "@/utils/api";
 import { FaPaste, FaTimes } from "@/icons/index";
 
 export default function Downloader({
@@ -22,8 +22,9 @@ export default function Downloader({
     description: subtitle,
   });
 
-  const pathname = usePathname(); // gets the current URL path
+  const pathname = usePathname();
 
+  // ✅ Set dynamic page meta tags
   useEffect(() => {
     if (pageMeta.title) {
       document.title = pageMeta.title;
@@ -41,6 +42,7 @@ export default function Downloader({
     }
   }, [pageMeta]);
 
+  // ✅ Handle form submit
   const handleDownload = async (e) => {
     e.preventDefault();
 
@@ -63,6 +65,7 @@ export default function Downloader({
     }
   };
 
+  // ✅ Clipboard paste helper
   const handlePaste = async () => {
     try {
       if (!navigator.clipboard) {
@@ -79,10 +82,11 @@ export default function Downloader({
   return (
     <>
       <div className={styles.wrapper}>
+        {/* Navigation Tabs */}
         <nav className={styles.category}>
           {mainNavLinks?.map(
             ({ label, icon, href, metaTitle, metaDescription }, idx) => {
-              const isActive = pathname === href; // check if current route matches link
+              const isActive = pathname === href;
               return (
                 <div
                   className={`${styles.category_element} ${
@@ -108,9 +112,11 @@ export default function Downloader({
           )}
         </nav>
 
+        {/* Page Title */}
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.subtitle}>{subtitle}</p>
 
+        {/* Search Form */}
         <form className={styles.search_form} onSubmit={handleDownload}>
           <div className={styles.search_form__field}>
             <label className={styles.search_form__label}>
@@ -125,6 +131,7 @@ export default function Downloader({
               />
             </label>
 
+            {/* Paste / Clear Button */}
             <div className={styles.search_form__clipboard}>
               {url.trim() === "" ? (
                 <button
@@ -150,6 +157,7 @@ export default function Downloader({
             </div>
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
@@ -159,18 +167,20 @@ export default function Downloader({
           </button>
         </form>
 
+        {/* Error Message */}
         {error && <div className={styles.error}>{error}</div>}
       </div>
 
+      {/* Loader */}
       {loading ? (
         <div className={styles.loaderContainer}>
           <div className={styles.spinner} />
           <p className={styles.loaderMessage}>
-            We are downloading the stories. Please wait :)
+            Fetching Facebook media, please wait...
           </p>
         </div>
       ) : (
-        <MediaPreview mediaData={mediaData} />
+        mediaData && <MediaPreview mediaData={mediaData} />
       )}
     </>
   );

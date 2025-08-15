@@ -1,21 +1,16 @@
 
 
-export async function downloadInstagramMedia(url) {
-  if (!url || !url.trim()) {
-    throw new Error("Please enter a URL");
-  }
-
-  const res = await fetch("/api/instagram", {
+export async function downloadFacebookMedia(url) {
+  const res = await fetch("/api/facebook", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url }),
   });
 
-  const data = await res.json();
-
   if (!res.ok) {
-    throw new Error(data.error || "Server error");
+    const error = await res.json().catch(() => ({}));
+    throw new Error(error.error || "Failed to fetch Facebook media");
   }
 
-  return data;
+  return res.json();
 }

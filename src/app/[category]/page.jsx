@@ -10,8 +10,7 @@ import { categoryContent } from "@/dataStore/categoryContent";
 export default function CategoryPage({ params }) {
   const content = categoryContent[params.category];
 
-  if (!content) return notFound(); // 404 if not found
-  console.log(content, "contentcontentcontent");
+  if (!content) return notFound(); 
   return (
     <>
       <Downloader title={content.title} subtitle={content.subtitle} />
