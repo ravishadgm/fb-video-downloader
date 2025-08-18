@@ -1,65 +1,61 @@
-const express = require('express');
-const axios = require('axios');
-const cheerio = require('cheerio');
-const cors = require('cors');
-const instagramUrlDirect = require("instagram-url-direct");
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-// --- Instagram downloader function ---
-async function getInstagramMedia(url) {
-  return instagramUrlDirect.instagramGetUrl(url);
+// Your existing functions with a small addition
+function getMediaTypeFromUrl(url) {
+  if (/\/videos?\//i.test(url)) return "video";
+  if (/\/reels?\//i.test(url)) return "reel";
+  if (/\/photos?\//i.test(url)) return "photo";
+  return "unknown";
 }
 
-// --- Facebook downloader route ---
-app.post('/api/download/facebook', async (req, res) => {
-  const { url } = req.body;
+export async function downloadFacebookMedia(url) {
+  const mediaType = getMediaTypeFromUrl(url); // video / photo
 
-  if (!url || !url.includes('facebook.com')) {
-    return res.status(400).json({ error: 'Invalid Facebook URL' });
+  if (mediaType === "unknown") {
+    throw new Error("Cannot determine media type from URL");
   }
 
-  try {
-    const { data } = await axios.get(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-      },
-    });
+  const res = await fetch(`/api/facebook/${mediaType}`, { // ✅ dynamic endpoint
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url }), // no separate type needed
+  });
 
-    const $ = cheerio.load(data);
-    const imgUrl = $('meta[property="og:image"]').attr('content');
-
-    if (!imgUrl) {
-      return res.status(404).json({ error: 'No public image found' });
-    }
-
-    res.json({ type: 'image', url: imgUrl });
-  } catch (err) {
-    console.error('Scraping error:', err.message);
-    res.status(500).json({ error: 'Failed to fetch image' });
-  }
-});
-
-// --- Instagram downloader route ---
-app.post('/api/download/instagram', async (req, res) => {
-  const { url } = req.body;
-
-  if (!url || !url.includes('instagram.com')) {
-    return res.status(400).json({ error: 'Invalid Instagram URL' });
+  if (!res.ok) {
+    const error = await res.json().catch(() => ({}));
+    throw new Error(error.error || "Failed to fetch Facebook media");
   }
 
-  try {
-    const media = await getInstagramMedia(url);
-    res.json(media);
-  } catch (err) {
-    console.error('Instagram error:', err.message);
-    res.status(500).json({ error: 'Failed to fetch Instagram media' });
-  }
-});
+  return res.json(); // returns type: photo or video
+}
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
-});
+// ADD THIS HELPER FUNCTION - This is key for your component mapping:
+export function getFacebookComponentType(data, url) {
+  // Check the API response type first
+  if (data?.type === 'video') return 'reel';     // Use existing 'reel' for videos
+  if (data?.type === 'photo') return 'photo';    // Use existing 'photo' for photos
+  if (data?.type === 'reels') return 'reel';
+
+  // Fallback to URL detection
+  const mediaType = getMediaTypeFromUrl(url);
+  if (mediaType === 'video') return 'reel';
+  if (mediaType === 'photo') return 'photo';
+
+  return 'reel'; // Default to reel (video)
+}
+
+// Helper to transform Facebook data for compatibility
+export function transformFacebookDataForReel(fbData, url) {
+  if (fbData.type === 'video') {
+    return {
+      ...fbData,
+      // Add Instagram-like properties for compatibility
+      username: "facebook_user",
+      caption: fbData.title,
+      likes: 0, // Facebook doesn't provide this
+      views: 0, // Facebook doesn't provide this
+      mediaUrls: fbData.media?.map(item => item.url) || [],
+      mediaUrl: fbData.media?.[0]?.proxyUrl || fbData.media?.[0]?.url,
+      thumbnail: fbData.thumbnail
+    };
+  }
+  return fbData;
+}
