@@ -13,7 +13,7 @@ export default function Downloader({
   title = "Facebook Downloader",
   subtitle = "Download Facebook Videos, Photos, Reels & story",
 }) {
-  const [url, setUrl] = useState("https://www.facebook.com/reel/1457451568709586/?referral_source=profile_reels_tab");
+  const [url, setUrl] = useState("");
   const [mediaData, setMediaData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -56,7 +56,7 @@ export default function Downloader({
 
     try {
       const data = await downloadFacebookMedia(url);
-      console.log(data,"data")
+      console.log(data, "data");
       setMediaData(data);
     } catch (err) {
       setError(err.message || "Something went wrong");
