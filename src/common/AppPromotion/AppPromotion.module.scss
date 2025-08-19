@@ -35,21 +35,16 @@
 .imageWrapper {
   position: absolute;
   left: -5px;
-  top: -268px; 
+  top: -90px; 
   width: 500px; 
-  height: 800px;
+  height: 400px;
   z-index: 10;
 
   @media(max-width:1080px){
-    top:-273px;
+    top:-95px;
   }
 
-  @media (max-width: 1019px) {
-    left: 0px;
-    top: 25px; 
-    height: 280px;
-    
-  }
+
 
   @media(max-width:973px){
     position: relative;
@@ -57,11 +52,14 @@
     margin: 0 auto;
   }
 
-   @media (max-width: 480px) {
-    width: 280px;
-    height: 300px;
-    transform: translateY(50px);
- 
+   @media (max-width: 520px) {
+    width: 240px;
+    height: 250px;
+    transform: translateY(0px);
+  }
+
+  @media(max-width:480px){
+    padding-top:20px;
   }
 }
 

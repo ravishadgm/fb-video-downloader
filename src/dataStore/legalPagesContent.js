@@ -10,7 +10,7 @@ const legalPagesData = {
         heading: "1. Information We Collect",
         text: "FacebookDl.app is committed to protecting your privacy. We collect minimal information to provide our service:",
         list: [
-          "Instagram URLs you submit for downloading",
+          "Facebook URLs you submit for downloading",
           "Basic usage analytics (page views, download counts)",
           "Technical information (IP address, browser type, device information)",
         ],
@@ -27,7 +27,7 @@ const legalPagesData = {
       },
       {
         heading: "3. Data Storage and Security",
-        text: "We do not store downloaded content on our servers. Instagram URLs are processed in real-time and not permanently stored. We implement appropriate security measures to protect your information.",
+        text: "We do not store downloaded content on our servers. Facebook URLs are processed in real-time and not permanently stored. We implement appropriate security measures to protect your information.",
       },
       {
         heading: "4. Third-Party Services",
@@ -65,7 +65,7 @@ const legalPagesData = {
       },
       {
         heading: "2. Description of Service",
-        text: 'FacebookDl.app is a free online tool that allows users to download Instagram content including photos, videos, reels, stories, IGTV, and carousel posts. Our service is provided "as is" without any warranties.',
+        text: 'FacebookDl.app is a free online tool that allows users to download Facebook content including photos, videos, reels, stories, IGTV, and carousel posts. Our service is provided "as is" without any warranties.',
       },
       {
         heading: "3. User Responsibilities",
@@ -91,7 +91,7 @@ const legalPagesData = {
       },
       {
         heading: "7. Content Ownership",
-        text: "All content accessed through FacebookDl.app remains the property of its original owners. FacebookDl.app does not claim ownership of any content posted on Instagram or downloaded through our service. Users are responsible for respecting copyright laws and Instagram's terms of service when using our platform.",
+        text: "All content accessed through FacebookDl.app remains the property of its original owners. FacebookDl.app does not claim ownership of any content posted on Facebook or downloaded through our service. Users are responsible for respecting copyright laws and Facebook's terms of service when using our platform.",
       },
     ],
   },

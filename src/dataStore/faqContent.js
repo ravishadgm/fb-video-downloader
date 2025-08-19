@@ -420,7 +420,7 @@ export const mainFaq = [
       "2.If there’s a video in a public Facebook post, you can download it directly.",
       "3. If there are multiple photos in a single post, you can download all of them with links.",
       "4. The quality of the downloaded videos is high.",
-      "5. You don’t need to install extra software or spend a lot of time.",
+      "5. You don’t need to ll extra software or spend a lot of time.",
     ],
   },
   {

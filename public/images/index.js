@@ -3,7 +3,7 @@ import Download from "./about/DownloadFb.png";
 import step1 from "./about/step1.png";
 import step2 from "./about/step2.png";
 import step3 from "./about/step3.png";
-import mobile from "./about/mobile.webp";
+import mobile from "./about/mobile2.png";
 import videoImg1 from "./about/videoImg1.png";
 import videoImg2 from "./about/videoImg2.png";
 import DownloadTwo from "./about/Photo.png";

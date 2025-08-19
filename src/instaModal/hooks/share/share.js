@@ -1,6 +1,6 @@
 export const handleShare = (url) => {
   if (navigator.share) {
-    navigator.share({ title: "Instagram Post", url }).catch(console.error);
+    navigator.share({ title: "Facebook Post", url }).catch(console.error);
   } else {
     alert("Sharing not supported in this browser.");
   }
@@ -17,7 +17,7 @@ export const handleShareAll = (mediaUrls) => {
   if (firstUrl) {
     navigator
       .share({
-        title: "Instagram Post",
+        title: "Facebook Post",
         url: firstUrl,
       })
       .catch((error) => {
