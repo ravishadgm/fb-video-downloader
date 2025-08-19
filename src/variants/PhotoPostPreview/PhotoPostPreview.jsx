@@ -69,7 +69,7 @@ export default function PhotoPostPreview({ userEnteredUrl, data }) {
         <PostHeader
           avatar={postData?.thumbnail}
           username={postData?.username || "Facebook User"}
-          fullName={postData?.fullName || ""}
+          fullName={postData?.fullName || "Facebook User"}
           title={postData?.title}
         />
 

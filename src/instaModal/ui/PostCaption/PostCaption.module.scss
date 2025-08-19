@@ -2,23 +2,22 @@
   font-size: 14px;
   line-height: 1.4;
   color: #262626;
-  padding:0 10px 10px;
-}
-
-.username {
-  font-weight: 600;
-  color: $black-color;
+  padding: 0 10px 10px;
 }
 
 .text {
   word-break: break-word;
   white-space: pre-line;
+  span {
+    font-size: 16px;
+    line-height: 21px;
+  }
 }
 
 .more {
   background: none;
   border: none;
-  color: rgb(115,115,115);
+  color: rgb(115, 115, 115);
   font-size: 14px;
   cursor: pointer;
   padding: 0;

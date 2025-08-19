@@ -13,7 +13,7 @@ export default function Downloader({
   title = "Facebook Downloader",
   subtitle = "Download Facebook Videos, Photos, Reels & story",
 }) {
-  const [url, setUrl] = useState("https://www.facebook.com/photo/?fbid=1377006457122889&set=pb.100044406430401.-2207520000");
+  const [url, setUrl] = useState("https://www.facebook.com/reel/1457451568709586/?referral_source=profile_reels_tab");
   const [mediaData, setMediaData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -24,7 +24,6 @@ export default function Downloader({
 
   const pathname = usePathname();
 
-  // ✅ Set dynamic page meta tags
   useEffect(() => {
     if (pageMeta.title) {
       document.title = pageMeta.title;

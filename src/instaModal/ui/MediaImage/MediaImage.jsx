@@ -8,8 +8,8 @@ export default function MediaImage({ src, alt, className }) {
     <Image
       src={src}
       alt={alt}
-      width={500} // required by Next.js, but we'll override with CSS
-      height={500}
+      width={450} 
+      height={450}
       className={`${styles.image} ${className || ""}`}
   
     />

@@ -1,7 +1,7 @@
 function getMediaTypeFromUrl(url) {
   if (/\/stories\//i.test(url)) return "story";
-  if (/\/(videos|reel)\//i.test(url)) return "media";
-  if (/\/photos?\//i.test(url)) return "photo";
+  if (/\/(videos|reel|watch)\//i.test(url)) return "media";
+  if (/\/(photos|photo)?\//i.test(url)) return "photo";
 
   return "unknown";
 }
@@ -26,4 +26,3 @@ export async function downloadFacebookMedia(url) {
 
   return res.json();
 }
-
