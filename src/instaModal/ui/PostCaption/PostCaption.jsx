@@ -8,7 +8,6 @@ export default function PostCaption({ username, caption = "" }) {
 
   const toggleExpanded = () => setExpanded(!expanded);
 
-
   const lines = caption.split(/\r?\n/);
   const shouldTruncate = lines.length > 1;
 
@@ -16,7 +15,6 @@ export default function PostCaption({ username, caption = "" }) {
 
   return (
     <div className={styles.caption}>
-      <span className={styles.username}>{username}</span>{" "}
       <span className={styles.text}>
         {displayedLines.map((line, idx) => (
           <span key={idx}>

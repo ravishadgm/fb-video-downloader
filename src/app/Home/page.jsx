@@ -17,7 +17,7 @@ export default function Page() {
         title="Facebook Videos and Photos Download"
         description="FacebookDl is an online web tool that helps you download Facebook Videos, Photos, Reels, and IGTV. FacebookDl.app is designed to be easy to use on any device, such as a mobile phone, tablet, or computer."
         heading="How to download from Facebook?"
-        smallDescription="You must follow these three easy steps to download video, reels, and photo from Facebook (IG, Insta). Follow the simple steps below."
+        smallDescription="You must follow these three easy steps to download video, reels, and photo from Facebook. Follow the simple steps below."
         steps={steps}
       />
       <WhyUs />

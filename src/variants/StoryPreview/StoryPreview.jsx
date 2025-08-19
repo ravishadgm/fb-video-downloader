@@ -161,6 +161,7 @@ export default function StoryPreview({ stories = [] }) {
 
             return (
               <SwiperSlide key={idx}>
+                <h1>Heloo</h1>
                 <div className={styles.storySlide}>
                   {video ? (
                     <video

@@ -11,7 +11,7 @@ import { FaPaste, FaTimes } from "@/icons/index";
 
 export default function Downloader({
   title = "Facebook Downloader",
-  subtitle = "Download Facebook Videos, Photos, Reels, IGTV & carousel",
+  subtitle = "Download Facebook Videos, Photos, Reels & story",
 }) {
   const [url, setUrl] = useState("https://www.facebook.com/photo/?fbid=1377006457122889&set=pb.100044406430401.-2207520000");
   const [mediaData, setMediaData] = useState(null);
@@ -66,7 +66,6 @@ export default function Downloader({
     }
   };
 
-  // ✅ Clipboard paste helper
   const handlePaste = async () => {
     try {
       if (!navigator.clipboard) {

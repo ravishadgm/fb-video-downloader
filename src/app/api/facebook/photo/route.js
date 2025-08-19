@@ -33,8 +33,8 @@ export async function POST(req) {
     await browser.close();
     return NextResponse.json({
       ok: true,
-      type: "images",
-      images: images,
+      type: "photo",
+      media: images.map((url) => ({ url }))
     });
   } catch (err) {
     console.error(err);

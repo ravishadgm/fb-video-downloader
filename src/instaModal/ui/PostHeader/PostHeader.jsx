@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import styles from "./PostHeader.module.scss";
+import PostCaption from "../PostCaption/PostCaption";
 
-export default function PostHeader({ thumbnail, username, fullName }) {
+export default function PostHeader({ thumbnail, username, fullName, title }) {
   if (!username) return null;
 
   const initials = fullName
@@ -14,19 +15,22 @@ export default function PostHeader({ thumbnail, username, fullName }) {
     .toUpperCase();
 
   return (
-    <div className={styles.header}>
-      {thumbnail ? (
-        <Image
-          src={thumbnail}
-          alt={username}
-          width={30}
-          height={30}
-          className={styles.avatar}
-        />
-      ) : (
-        <div className={styles.initials}>{initials}</div>
-      )}
-      <span className={styles.username}>{username}</span>
+    <div>
+      <div className={styles.header}>
+        {thumbnail ? (
+          <Image
+            src={thumbnail}
+            alt={username}
+            width={30}
+            height={30}
+            className={styles.avatar}
+          />
+        ) : (
+          <div className={styles.initials}>{initials}</div>
+        )}
+        <span className={styles.username}>{username}</span>
+      </div>
+      {title && <PostCaption username={username} caption={title} />}
     </div>
   );
 }

@@ -82,7 +82,8 @@
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  align-self: center;
+  align-self: flex-end;
+  margin-bottom:50px;
   pointer-events: auto;
   z-index: 3;
 
@@ -159,7 +160,12 @@
  .shareDownload {
     gap: 10px;
     display: flex;
-    padding: 10px;
+    padding: 10px 0px;
+
+    @media(max-width:480px){
+      padding:10px;
+    }
+
     .innerBtn {
       background: $gradient-blue;
       color: $color-white;
@@ -171,3 +177,25 @@
       text-transform: capitalize;
     }
   } 
+
+  .topControls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.controlBtn {
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,20 +1,22 @@
 function getMediaTypeFromUrl(url) {
-  if (/\/videos?\//i.test(url)) return "video";
+  if (/\/stories\//i.test(url)) return "story";
+  if (/\/(videos|reel)\//i.test(url)) return "media";
   if (/\/photos?\//i.test(url)) return "photo";
+
   return "unknown";
 }
 
 export async function downloadFacebookMedia(url) {
-  const mediaType = getMediaTypeFromUrl(url); // video / photo
+  const mediaType = getMediaTypeFromUrl(url);
 
   if (mediaType === "unknown") {
     throw new Error("Cannot determine media type from URL");
   }
 
-  const res = await fetch(`/api/facebook/${mediaType}`, { // ✅ dynamic endpoint
+  const res = await fetch(`/api/facebook/${mediaType}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ url }), // no separate type needed
+    body: JSON.stringify({ url }),
   });
 
   if (!res.ok) {
@@ -22,6 +24,6 @@ export async function downloadFacebookMedia(url) {
     throw new Error(error.error || "Failed to fetch Facebook media");
   }
 
-  return res.json(); // returns type: photo or video
+  return res.json();
 }
 
