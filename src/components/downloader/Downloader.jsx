@@ -13,7 +13,7 @@ export default function Downloader({
   title = "Facebook Downloader",
   subtitle = "Download Facebook Videos, Photos, Reels, IGTV & carousel",
 }) {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("https://www.facebook.com/photo/?fbid=1377006457122889&set=pb.100044406430401.-2207520000");
   const [mediaData, setMediaData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -57,6 +57,7 @@ export default function Downloader({
 
     try {
       const data = await downloadFacebookMedia(url);
+      console.log(data,"data")
       setMediaData(data);
     } catch (err) {
       setError(err.message || "Something went wrong");
