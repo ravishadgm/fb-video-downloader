@@ -4,7 +4,13 @@ import Image from "next/image";
 import styles from "./PostHeader.module.scss";
 import PostCaption from "../PostCaption/PostCaption";
 
-export default function PostHeader({ thumbnail, username, fullName, title }) {
+export default function PostHeader({
+  thumbnail,
+  username,
+  fullName,
+  title,
+  textColor = "#333",
+}) {
   if (!username) return null;
 
   const initials = fullName
@@ -26,9 +32,13 @@ export default function PostHeader({ thumbnail, username, fullName, title }) {
             className={styles.avatar}
           />
         ) : (
-          <div className={styles.initials}>{initials}</div>
+          <div className={styles.initials} style={{ color: textColor }}>
+            {initials}
+          </div>
         )}
-        <span className={styles.username}>{username}</span>
+        <span className={styles.username} style={{ color: textColor }}>
+          {username}
+        </span>
       </div>
       {title && <PostCaption username={username} caption={title} />}
     </div>

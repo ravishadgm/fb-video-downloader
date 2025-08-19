@@ -1,13 +1,11 @@
 .storyWrapper {
   width: 100%;
   max-width: 550px;
-  height: 700px;
   margin: 0 auto;
-  border-radius: 8px;
+ 
   overflow: hidden;
-  background: $black-color;
   position: relative;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+
   margin-bottom: 22px;
  
 }
@@ -22,6 +20,7 @@
   background: $black-color;
   text-align: center;
   height: 100%;
+  max-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,30 +38,6 @@
   margin-top:10px;
   
 }
-
-.userInfo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: bold;
-  font-size: 14px;
-  color: $color-white;
-}
-
-.initials {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: $gradient-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-transform: uppercase;
-}
-
-
-
 
 .controlButtons {
   display: flex;

@@ -39,6 +39,7 @@ export async function POST(req) {
             );
         }
 
+        // --- Collect Media Recursively ---
         function collectMedia(obj, collected = []) {
             if (!obj || typeof obj !== "object") return collected;
 
@@ -73,10 +74,24 @@ export async function POST(req) {
             );
         }
 
+        const firstNode = storyData?.data?.nodes?.[0];
+        const accountInfo = firstNode?.story_bucket_owner || {};
+
+        const accountName = accountInfo.name || "Unknown User";
+        const accountId = accountInfo.id || null;
+        const profilePic = accountInfo.profile_picture?.uri || null;
+        const accountUrl = accountInfo.url || null;
+
         return NextResponse.json({
             ok: true,
             type: "story",
-            urls: mediaList
+            account: {
+                id: accountId,
+                name: accountName,
+                profilePic,
+                url: accountUrl,
+            },
+            urls: mediaList,
         });
 
     } catch (err) {

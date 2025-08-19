@@ -9,10 +9,14 @@ import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "@/icons/index";
 import MediaGallery from "@/instaModal/ui/MediaGallery/MediaGallery";
 import SwiperNavigation from "@/instaModal/ui/SwiperNavigation/SwiperNavigation";
 import BottomActivityPanel from "@/instaModal/ui/BottomActivityPanel/BottomActivityPanel";
+import PostHeader from "@/instaModal/ui/PostHeader/PostHeader";
+
 import styles from "./StoryPreview.module.scss";
 
 export default function StoryPreview({ data }) {
   const urls = Array.isArray(data?.urls) ? data.urls : [];
+  const account = data?.account || {};
+
   const videoRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -75,8 +79,9 @@ export default function StoryPreview({ data }) {
   };
 
   const postData = {
-    username: "Facebook User",
-    fullName: "Facebook User",
+    username: account.name || account.url || "facebook User",
+    fullName: account.name || "Facebook User",
+    thumbnail: account.profilePic || account.name,
     mediaUrls: urls,
     likes: Math.floor(Math.random() * 1000),
     views: Math.floor(Math.random() * 10000),
@@ -155,20 +160,12 @@ export default function StoryPreview({ data }) {
                   )}
 
                   <div className={styles.storyTopBar}>
-                    <div className={styles.userInfo}>
-                      <div className={styles.initials}>
-                        {postData.fullName
-                          ?.split(" ")
-                          .filter(Boolean)
-                          .slice(0, 2)
-                          .map((word) => word[0])
-                          .join("")
-                          .toUpperCase()}
-                      </div>
-                      <span className={styles.username}>
-                        {postData.username}
-                      </span>
-                    </div>
+                    <PostHeader
+                      thumbnail={postData.thumbnail}
+                      username={postData.username}
+                      fullName={postData.fullName}
+                      textColor="white"
+                    />
 
                     {isVideo && idx === currentIndex && (
                       <div className={styles.controlButtons}>
@@ -194,16 +191,16 @@ export default function StoryPreview({ data }) {
         </Swiper>
 
         <SwiperNavigation swiper={swiperInstance} />
-      </div>
 
-      <BottomActivityPanel
-        className={styles.shareDownload}
-        data={{
-          ...postData,
-          currentMediaUrl: urls[currentIndex],
-          currentMediaIndex: currentIndex,
-        }}
-      />
+        <BottomActivityPanel
+          className={styles.shareDownload}
+          data={{
+            ...postData,
+            currentMediaUrl: urls[currentIndex],
+            currentMediaIndex: currentIndex,
+          }}
+        />
+      </div>
 
       <MediaGallery mediaUrls={urls} />
     </>
