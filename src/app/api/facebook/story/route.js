@@ -19,9 +19,7 @@ export async function POST(req) {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "x-rapidapi-key":
-                        process.env.RAPIDAPI_KEY ||
-                        "c34d95927dmsh166eff8f28923b3p1ea15ajsn0f2a81eab998",
+                    "x-rapidapi-key": process.env.RAPIDAPI_KEY,
                     "x-rapidapi-host": "facebook-media-api.p.rapidapi.com",
                 },
                 body: JSON.stringify({
@@ -41,26 +39,23 @@ export async function POST(req) {
             );
         }
 
-        // 🔎 Recursively collect media
         function collectMedia(obj, collected = []) {
             if (!obj || typeof obj !== "object") return collected;
 
             if (obj.playable_url_quality_hd || obj.playable_url) {
-                collected.push({
-                    type: "video",
-                    url: obj.playable_url_quality_hd || obj.playable_url,
-                });
+                collected.push(obj.playable_url_quality_hd || obj.playable_url);
             }
 
             if (obj.image?.uri) {
-                collected.push({
-                    type: "image",
-                    url: obj.image.uri,
-                });
+                collected.push(obj.image.uri);
             }
 
-            for (const key of Object.keys(obj)) {
-                collectMedia(obj[key], collected);
+            if (Array.isArray(obj)) {
+                obj.forEach((item) => collectMedia(item, collected));
+            } else {
+                for (const key of Object.keys(obj)) {
+                    collectMedia(obj[key], collected);
+                }
             }
 
             return collected;
@@ -70,26 +65,20 @@ export async function POST(req) {
 
         if (!mediaList || mediaList.length === 0) {
             return NextResponse.json(
-                { error: "Could not extract media", debug: storyData },
+                {
+                    error: "No stories found",
+                    debug: storyData
+                },
                 { status: 404 }
             );
         }
 
-        // ✅ Shape it exactly for frontend
-        const stories = mediaList.map((media) => ({
-            type: media.type,        // "video" | "image"
-            url: media.url,          // matches frontend
-            user: {
-                name: "Facebook User", // matches frontend
-                avatar: null,          // matches frontend
-            },
-        }));
-
         return NextResponse.json({
             ok: true,
-            type: "stories",
-            stories,
+            type: "story",
+            urls: mediaList
         });
+
     } catch (err) {
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
