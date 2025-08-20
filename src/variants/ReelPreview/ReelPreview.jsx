@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import BottomActivityPanel from "@/instaModal/ui/BottomActivityPanel/BottomActivityPanel";
-import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "@/icons/index";
 import styles from "./ReelPreview.module.scss";
 
 export default function ReelPreview({ data }) {

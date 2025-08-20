@@ -3,8 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import Images from "@/utils/images";
-import styles from "./Footer.module.scss";
 import { mainNavLinks, legalLinks } from "@/dataStore/linksContent";
+import styles from "./Footer.module.scss";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,20 +38,15 @@ export default function Footer() {
           </Link>
         </div>
 
-        {/* Main Navigation */}
         <div className={styles.navLinks} aria-label="Main navigation">
           {renderLinks(mainNavLinks)}
         </div>
 
-        {/* Legal & Support */}
         <div className={styles.footerLinks} aria-label="Legal and support">
           {renderLinks(legalLinks)}
         </div>
-
-        {/* Additional Services */}
       </div>
 
-      {/* Copyright */}
       <div className={styles.copyright}>
         <span
           aria-label={`Copyright ${currentYear} FacebookDl. All rights reserved.`}

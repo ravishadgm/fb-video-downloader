@@ -28,7 +28,7 @@ export default function AppPromotion() {
         <div className={styles.content}>
           <h2 id="app-promo-heading">Download with mobile app</h2>
           <p>
-            Download any photos, videos, reels, IGTV in one click! Our app
+            Download any photos, videos, reels, Story in one click! Our app
             provides fast, high-resolution downloads without watermarks, making
             it an ideal choice for downloading Facebook content.
           </p>

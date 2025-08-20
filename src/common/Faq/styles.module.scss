@@ -31,7 +31,7 @@
         margin: 20px auto;
         font-weight: 400;
          
-        @media(max-width:480px){
+        @media(max-width:1440px){
             font-size: 16px;
         }
     }
@@ -44,7 +44,7 @@
             margin-top:30px;
         }
 
-        h4 {
+        h3 {
             font-size: 18px;
             color:$primary-color;
             font-weight: 700;
@@ -60,7 +60,7 @@
             margin: 10px auto 0;
             color: $text-secondary;
 
-            @media(max-width:1080px){
+            @media(max-width:1440px){
                 font-size: 16px;
             }
         }

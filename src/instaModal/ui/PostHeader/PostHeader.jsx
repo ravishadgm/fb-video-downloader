@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import PostCaption from "@/instaModal/ui/PostCaption/PostCaption";
 import styles from "./PostHeader.module.scss";
-import PostCaption from "../PostCaption/PostCaption";
 
 export default function PostHeader({
   thumbnail,

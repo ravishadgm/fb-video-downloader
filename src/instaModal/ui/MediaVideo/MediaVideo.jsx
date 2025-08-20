@@ -1,5 +1,7 @@
 "use client";
+
 import styles from "./MediaVideo.module.scss";
+
 export default function MediaVideo({ src }) {
   return (
     <video

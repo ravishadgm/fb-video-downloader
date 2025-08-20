@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MediaPreview from "@/components/mediaPreview/MediaPreview";
-import styles from "./style.module.scss";
 import { mainNavLinks } from "@/dataStore/linksContent";
 import { downloadFacebookMedia } from "@/utils/api";
 import { FaPaste, FaTimes } from "@/icons/index";
+import styles from "./style.module.scss";
 
 export default function Downloader({
   title = "Facebook Downloader",

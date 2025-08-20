@@ -23,7 +23,7 @@ export default function Page() {
       <WhyUs />
       <DownloadDescription
         heading="FacebookDl.app features"
-        headingDescription="With FacebookDl you can download any type of content from Facebook. Our service has an IG video downloader, Reels, IGTV, photo or carousel."
+        headingDescription="With FacebookDl you can download any type of content from Facebook. Our service has an IG video downloader, Reels, story & photo."
         image={Images.videoImg2}
         title="Video Downloader"
         description="FacebookDl.app supports Facebook video download for singular videos and multiple videos from carousels. FacebookDl is created to enable you to download IG videos from your personal page."

@@ -1,16 +1,16 @@
 "use client";
 
 import { previewComponentMap } from "@/dataStore/mediaPreviewTypes";
-import styles from "./style.module.scss";
 
 export default function MediaPreview({ mediaData }) {
   if (!mediaData) return null;
 
   const typeKey = mediaData.type?.toLowerCase();
-  const renderComponent = previewComponentMap[typeKey] || previewComponentMap.photo;
+  const renderComponent =
+    previewComponentMap[typeKey] || previewComponentMap.photo;
 
   return (
-    <div className={styles.media_container}>
+    <div style={{ margin: "2rem 0" }}>
       {renderComponent({ data: mediaData })}
     </div>
   );

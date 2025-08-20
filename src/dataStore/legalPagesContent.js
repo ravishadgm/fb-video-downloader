@@ -1,4 +1,3 @@
-// src/data/legalPagesData.js
 
 const legalPagesData = {
   "privacy-policy": {

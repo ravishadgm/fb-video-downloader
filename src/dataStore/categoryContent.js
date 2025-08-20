@@ -1,7 +1,5 @@
 import Images from "@/utils/images";
 import {
-  steps,
-  faqs,
   carouselSteps,
   carouselFaq,
   igtvSteps,
@@ -50,63 +48,6 @@ export const categoryContent = {
         "This FAQ answers common questions or worries people have about the FacebookDl.app downloader. If you don't find the information you're looking for, you can send us an email through our contact page.",
       image: Images.Download,
       items: videoFaqs,
-    },
-  },
-  carousel: {
-    title: "IG Carousel Downloader",
-    subtitle: "Download carousel from Facebook",
-    about: {
-      image: Images.Download,
-      title: "Download Facebook Carousels",
-      description: `Many Facebook users are familiar with the term "Facebook carousel." It's a type of post that includes several photos or videos, and you can swipe left or click to view them. This format helps grab attention as you scroll through the app. Now, you don't have to wonder if you can download multiple photos from a carousel post. We've made it easy for you. Use our Facebook downloader to save images and mixed content that includes both photos and videos."      heading: "How to download Facebook carousel posts?`,
-      smallDescription:
-        "Facebook carousel posts can now be downloaded and saved fast and easily. In just three steps, you will get the joy of delighting your eyes while watching your favorite photos",
-      steps: carouselSteps,
-    },
-    downloadDescription: {
-      heading: "Carousel Downloader",
-      headingDescription: `Facebook is a social media app where people can share stories and show them to their friends. You can make stories and save them in highlights, just like on Snapchat. Our site lets you download Facebook stories with just one click!`,
-      image: Images.videoImg3,
-      title: "Album Downloader",
-      description: `It has always been hard to download an Facebook carousel post. You just need to paste the link of the carousel post without having to look through the source code or find a photo link. It is completely safe and secure because all the photos and videos are downloaded directly from the Facebook server.`,
-      link: "/carousel",
-      secondImage: Images.DownloadTwo,
-      secondTitle: "Download multiple photos",
-      secondDescription: `The online Facebook tool lets you download multiple photos for free. It works for even the biggest images, saving them in high quality and keeping their original look. You can get HD images and videos from Facebook using this downloader.`,
-      secondLink: "/carousel",
-    },
-    faq: {
-      title: "Frequently asked questions (FAQ)",
-      intro: `This FAQ gives answers to common questions or issues people have about the FacebookDl.app downloader. If you don't find the answer you're looking for, you can send us an email through our contact page.`,
-      image: Images.Download,
-      items: carouselFaq,
-    },
-  },
-  igtv: {
-    title: "IGTV Downloader",
-    subtitle: "Facebook IGTV Video Download",
-    about: {
-      image: Images.Download,
-      title: "Download Facebook IGTV Videos",
-      description: `Discover an easy, fast, and efficient method to download Facebook videos with our IGTV Video Downloader. While scrolling through Facebook, you may come across an IGTV video that you like. Saving it to your device is really simple. Just copy the video's URL, paste it into the special box on the FacebookDl website, and click the Download button. And there you go—your video is ready to watch offline.`,
-      heading: "How to download IGTV Facebook?",
-      smallDescription: `To download an IGTV video, just follow these simple steps as explained below.`,
-      steps: igtvSteps,
-    },
-    downloadDescription: {
-      heading: "Download IGTV Videos",
-      headingDescription: `Facebook is a social media app where people can share short updates called stories with their friends. You can make stories and even save them in special sections like Snapchat. Our website lets you download Facebook stories with just one click!`,
-      image: Images.videoImg2,
-      title: "IGTV Downloader",
-      description:
-        "After clicking the Download button, you want to check if the video has been downloaded. So, no matter what device you use, a smartphone, a tablet, a Mac, or a PC, the IGTV video will be downloaded in the default Download folder. There should be no compatibility problems.",
-      link: "/igtv",
-    },
-    faq: {
-      title: "Frequently asked questions (FAQ)",
-      intro: `This FAQ answers common questions or worries people have about the FacebookDl.app IGTV downloader. If you don't find the information you're looking for, you can reach out to us by email using the contact page.`,
-      image: Images.Download,
-      items: igtvFaq,
     },
   },
   photo: {
@@ -189,34 +130,6 @@ export const categoryContent = {
       intro: `This FAQ answers common questions or issues people have about the FacebookDl.app Facebook story downloader. If you don't find the information you're looking for, you can send us an email through the contact page.`,
       image: Images.Download,
       items: storyFaq,
-    },
-  },
-  viewer: {
-    title: "Facebook Stories Viewer",
-    subtitle: "Anonymously Facebook Story Viewer",
-    about: {
-      image: Images.Download,
-      title: "Facebook Stories Viewer",
-      description:
-        "FacebookDl Facebook Stories Viewer is a complimentary tool that enables anonymous viewing of Facebook stories from public profiles without the need for Facebook user authentication. The platform offers a range of free features, allowing you to discreetly view stories without any extra steps, other than entering the user's Facebook handle.",
-      heading: "How to use Facebook Story Viewer?",
-      smallDescription:
-        "See below the three easy steps to use this Facebook Story Viewer. It saves time and energy.",
-      steps: viewSteps,
-    },
-    downloadDescription: {
-      heading: "FacebookDl Story Viewer",
-      headingDescription: `An Facebook viewer is a website or app that lets you check Facebook posts, stories, and profiles without needing an account or logging in.`,
-      image: Images.videoImg1,
-      title: "Facebook Stories Viewer",
-      description: `Right now, Facebook users can't download or save stories, highlights, or reels directly from the app. But there's a tool called the Facebook Stories viewer that let's users do this. Also, there's the FacebookDl Facebook Highlights viewer, which lets you check public user stories without being logged in, and it works on any device.`,
-      link: "/viewer",
-    },
-    faq: {
-      title: "Frequently asked questions (FAQ)",
-      intro: `This FAQ answers common questions or worries people have about the FacebookDl.app Facebook viewer. If you don't find the information you're looking for, you can send us an email through our contact page.`,
-      image: Images.Download,
-      items: viewFaq,
     },
   },
 };

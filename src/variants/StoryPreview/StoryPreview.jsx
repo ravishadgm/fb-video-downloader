@@ -10,7 +10,6 @@ import MediaGallery from "@/instaModal/ui/MediaGallery/MediaGallery";
 import SwiperNavigation from "@/instaModal/ui/SwiperNavigation/SwiperNavigation";
 import BottomActivityPanel from "@/instaModal/ui/BottomActivityPanel/BottomActivityPanel";
 import PostHeader from "@/instaModal/ui/PostHeader/PostHeader";
-
 import styles from "./StoryPreview.module.scss";
 
 export default function StoryPreview({ data }) {

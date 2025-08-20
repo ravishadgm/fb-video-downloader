@@ -117,9 +117,8 @@
   border: none;
 
   &:hover {
-    // background: #f8f8f8;
-     background: #eaeaea;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background: #eaeaea;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   }
 
   @media (max-width: 973px) {

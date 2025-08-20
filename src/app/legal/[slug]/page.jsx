@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./styles.module.scss";
 import legalPagesData from "@/dataStore/legalPagesContent";
+import styles from "./styles.module.scss";
 
 export function generateMetadata({ params }) {
   const pageData = legalPagesData[params.slug];

@@ -7,10 +7,12 @@ import DownloadDescription from "@/common/DownloadDescription/DownloadDescriptio
 import FaqSection from "@/common/Faq/Faq";
 import { categoryContent } from "@/dataStore/categoryContent";
 
-export default function CategoryPage({ params }) {
-  const content = categoryContent[params.category];
+export default async function CategoryPage({ params }) {
+  const { category } = await params;
 
-  if (!content) return notFound(); 
+  const content = categoryContent[category];
+
+  if (!content) return notFound();
   return (
     <>
       <Downloader title={content.title} subtitle={content.subtitle} />

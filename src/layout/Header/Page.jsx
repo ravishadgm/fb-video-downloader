@@ -21,7 +21,6 @@ export default function Header() {
             FAQ
           </Link>
         </nav>
-        {/* <Link href="/faq" className={styles.link}>FAQ</Link> */}
       </div>
     </header>
   );
