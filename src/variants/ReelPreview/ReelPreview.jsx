@@ -2,18 +2,7 @@
 
 import { useState, useRef } from "react";
 import BottomActivityPanel from "@/instaModal/ui/BottomActivityPanel/BottomActivityPanel";
-import { handleShare } from "@/instaModal/hooks/share/share";
-import { handleDownload } from "@/instaModal/hooks/download/download";
-import {
-  FaThumbsUp,
-  FaEye,
-  FaPlay,
-  FaPause,
-  FaVolumeMute,
-  FaVolumeUp,
-  FaMusic,
-} from "react-icons/fa";
-import { PiShareFatLight } from "react-icons/pi";
+import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import styles from "./ReelPreview.module.scss";
 
 export default function ReelPreview({ data }) {
@@ -64,24 +53,22 @@ export default function ReelPreview({ data }) {
         onEnded={() => setIsPlaying(false)}
       />
 
-      <div className={styles.topRow}>
-        <div className={styles.topControls}>
-          <button
-            onClick={togglePlay}
-            className={styles.controlBtn}
-            aria-label={isPlaying ? "Pause" : "Play"}
-          >
-            {isPlaying ? <FaPause /> : <FaPlay />}
-          </button>
+      <div className={styles.topControls}>
+        <button
+          onClick={togglePlay}
+          className={styles.controlBtn}
+          aria-label={isPlaying ? "Pause" : "Play"}
+        >
+          {isPlaying ? <FaPause /> : <FaPlay />}
+        </button>
 
-          <button
-            onClick={toggleMute}
-            className={styles.controlBtn}
-            aria-label={isMuted ? "Unmute" : "Mute"}
-          >
-            {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-          </button>
-        </div>
+        <button
+          onClick={toggleMute}
+          className={styles.controlBtn}
+          aria-label={isMuted ? "Unmute" : "Mute"}
+        >
+          {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+        </button>
       </div>
 
       <div className={styles.overlayContent}>
@@ -111,7 +98,7 @@ export default function ReelPreview({ data }) {
         data={{
           ...data,
           mediaUrls: [mediaUrl],
-          currentMediaUrl: mediaUrl[0],
+          currentMediaUrl: mediaUrl,
           currentMediaIndex: 0,
         }}
       />

@@ -164,7 +164,7 @@ export default function StoryPreview({ data }) {
                       thumbnail={postData.thumbnail}
                       username={postData.username}
                       fullName={postData.fullName}
-                      textColor="white"
+                      
                     />
 
                     {isVideo && idx === currentIndex && (

@@ -8,8 +8,7 @@ export default function PostHeader({
   thumbnail,
   username,
   fullName,
-  title,
-  textColor = "#333",
+  title
 }) {
   if (!username) return null;
 
@@ -32,11 +31,11 @@ export default function PostHeader({
             className={styles.avatar}
           />
         ) : (
-          <div className={styles.initials} style={{ color: textColor }}>
+          <div className={styles.initials} >
             {initials}
           </div>
         )}
-        <span className={styles.username} style={{ color: textColor }}>
+        <span className={styles.username}>
           {username}
         </span>
       </div>
